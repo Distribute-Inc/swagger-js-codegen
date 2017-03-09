@@ -2,7 +2,7 @@
 import {{name}} from '{{path}}';
 {{/imports}}
 
-interface {{&className}} {
+{{#isTypeScript}}export {{/isTypeScript}}interface {{&className}} {
 {{#methods}}
     {{&methodName}}(parameters : {
     {{#parameters}}
