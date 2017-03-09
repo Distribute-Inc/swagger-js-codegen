@@ -2,7 +2,7 @@
 import {{name}} from '{{path}}';
 {{/imports}}
 
-{{#isES6}}export default {{/isES6}}interface {{&className}} {
+{{#isTypeScript}}export {{/isTypeScript}}interface {{&className}} {
 {{#methods}}
     {{&methodName}}(parameters : {
     {{#parameters}}
@@ -15,6 +15,6 @@ import {{name}} from '{{path}}';
 
 // data types
 {{#definitions}}
-{{#isES6}}export {{/isES6}}interface {{name}} {{>type}}
+{{#isTypeScript}}export {{/isTypeScript}}interface {{name}} {{>type}}
 
 {{/definitions}}
