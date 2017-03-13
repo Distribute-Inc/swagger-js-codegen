@@ -29,8 +29,6 @@ const form = {};
     queryParameters[this.token.headerOrQueryName] = this.token.value;
     } else if ( this.token.headyOrQueryName ) {
     headers[this.token.headerOrQueryName] = this.token.value;
-    } else {
-    headers.authorization = `Bearer ${this.token.value}`;
     }
 {{/isSecure}}
 
