@@ -1,0 +1,14 @@
+{{#imports}}
+/// <reference path="{{.}}" />
+{{/imports}}
+
+interface {{&className}} {
+{{#methods}}
+    {{&methodName}}(parameters : {
+    {{#parameters}}
+        '{{name}}'{{#isOptional}}?{{/isOptional}}: {{>type}}
+    {{/parameters}}
+    }): {{#resultFn}}{{#responseType}}{{>type}}{{/responseType}}{{^responseType}}any{{/responseType}}{{/resultFn}};
+
+{{/methods}}
+}
