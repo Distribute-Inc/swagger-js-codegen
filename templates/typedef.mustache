@@ -11,6 +11,15 @@ interface {{&className}} {
     }): {{#resultFn}}{{#responseType}}{{>type}}{{/responseType}}{{^responseType}}any{{/responseType}}{{/resultFn}};
 
 {{/methods}}
+
+{{#__methods}}
+    __{{&methodName}}(parameters : {
+    {{#parameters}}
+        '{{name}}'{{#isOptional}}?{{/isOptional}}: {{>type}}
+    {{/parameters}}
+    }): {{#resultFn}}{{#responseType}}{{>type}}{{/responseType}}{{^responseType}}any{{/responseType}}{{/resultFn}};
+
+{{/__methods}}
 }
 
 // data types
