@@ -20,8 +20,8 @@ angular.module('{{&moduleName}}', [])
             if(this.domain.length === 0) {
                 throw new Error('Domain parameter must be specified as a string.');
             }
-            var getApiKey = (typeof options === 'object' && options.apiKey) ? options.apiKey : undefined;
-            this.getApiKey = (typeof apiKey === 'function') ? apiKey : undefined;
+            var getApiKey = (typeof options === 'object' && options.getApiKey) ? options.getApiKey : undefined;
+            this.getApiKey = (typeof getApiKey === 'function') ? getApiKey : undefined;
             cache = cache || ((typeof options === 'object') ? options.cache : cache);
             this.cache = cache;
             {{#isSecure}}
