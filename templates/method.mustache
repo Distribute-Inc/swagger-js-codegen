@@ -19,8 +19,8 @@
     var body;
     var queryParameters = {};
     var headers = {};
-    if (this.apiKey) {
-      parameters['user-api-key'] = this.apiKey;
+    if (this.getApiKey) {
+      parameters['user-api-key'] = this.getApiKey();
     }
     var form = {};
 
