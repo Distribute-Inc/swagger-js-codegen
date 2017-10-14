@@ -2,7 +2,7 @@
 /// <reference path="{{.}}" />
 {{/imports}}
 
-interface {{&className}} {
+export interface {{&className}} {
 {{#methods}}
     {{&methodName}}(parameters : {
     {{#parameters}}
@@ -24,6 +24,6 @@ interface {{&className}} {
 
 // data types
 {{#definitions}}
-interface {{name}} {{>type}}
+export interface {{name}} {{>type}}
 
 {{/definitions}}
