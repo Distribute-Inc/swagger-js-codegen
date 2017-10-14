@@ -7,7 +7,7 @@
 {{/parameters}}
  *
  */
- {{&className}}.prototype.__{{&methodName}} = {{&className}}.prototype.{{&methodName}} = function(parameters){
+ var {{&methodName}}_fn = function(parameters){
     if(parameters === undefined) {
         parameters = {};
     }
@@ -107,3 +107,6 @@
 
     return deferred.promise;
  };
+
+ {{&className}}.prototype.__{{&methodName}} = {{&methodName}}_fn;
+ {{&className}}.prototype.{{&methodName}} = {{&methodName}}_fn;
