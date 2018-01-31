@@ -14,6 +14,8 @@ this.domain = domain ? domain : '{{&domain}}';
 if( this.domain.length === 0 ) {
 throw new Error('Domain parameter must be specified as a string.');
 }
+const getApiKey = (typeof options === 'object' && options.getApiKey) ? options.getApiKey : undefined;
+this.getApiKey = (typeof getApiKey === 'function') ? getApiKey : undefined;
 {{#isSecure}}
     this.token = (typeof options === 'object') ? (options.token ? options.token : {}) : {};
 {{/isSecure}}
