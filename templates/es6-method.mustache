@@ -89,7 +89,7 @@ const form = {};
 
     {{#required}}
         if( parameters['{{&name}}'] === undefined ){
-        promise.reject(new Error('Missing required {{&paramType}} parameter: {{&name}}'));
+        throw new Error('Missing required {{&paramType}} parameter: {{&name}}');
         return promise
         }
     {{/required}}
