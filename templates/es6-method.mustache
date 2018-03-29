@@ -13,8 +13,6 @@ if ( parameters === undefined ) {
 parameters = [];
 }
 
-const deferred = Q.defer();
-
 const domain = this.domain;
 let path = '{{&path}}';
 
@@ -91,8 +89,8 @@ const form = {};
 
     {{#required}}
         if( parameters['{{&name}}'] === undefined ){
-        deferred.reject(new Error('Missing required {{&paramType}} parameter: {{&name}}'));
-        return deferred.promise;
+        promise.reject(new Error('Missing required {{&paramType}} parameter: {{&name}}'));
+        return promise
         }
     {{/required}}
 
@@ -107,5 +105,5 @@ queryParameters[parameterName] = parameter;
 
 {{> request}}
 
-return deferred.promise;
+return promise;
 }
