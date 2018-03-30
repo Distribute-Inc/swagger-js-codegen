@@ -25,15 +25,6 @@ if (this.getApiKey) {
 }
 const form = {};
 
-const promise = new Promise(
-    function (response) {
-        return response
-    },
-    function (error) {
-        return error
-    }
-)
-
 {{#isSecure}}
     if ( this.token.isQuery ) {
     queryParameters[this.token.headerOrQueryName] = this.token.value;
@@ -98,7 +89,7 @@ const promise = new Promise(
 
     {{#required}}
         if( parameters['{{&name}}'] === undefined ){
-        promise.reject(new Error('Missing required {{&paramType}} parameter: {{&name}}'));
+        return Promise.reject(new Error('Missing required {{&paramType}} parameter: {{&name}}'));
         }
     {{/required}}
 
