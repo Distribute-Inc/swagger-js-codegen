@@ -14,9 +14,9 @@ if( typeof(body) === 'object' && !(body instanceof Buffer) ) {
 
 axios(req).then(
   (successResponse) => {
-    deferred.resolve(successResponse);
+    promise.resolve(successResponse);
   },
   (error) => {
-    deferred.reject(error.response);
+    promise.reject(error.response);
   }
 );

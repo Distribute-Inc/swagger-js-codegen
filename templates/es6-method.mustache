@@ -25,7 +25,15 @@ if (this.getApiKey) {
 }
 const form = {};
 
-const deferred = Promise.defer()
+const promise = new Promise(
+    function (response) {
+        return response
+    },
+    function (error) {
+        return error
+    }
+)
+
 {{#isSecure}}
     if ( this.token.isQuery ) {
     queryParameters[this.token.headerOrQueryName] = this.token.value;
@@ -90,7 +98,7 @@ const deferred = Promise.defer()
 
     {{#required}}
         if( parameters['{{&name}}'] === undefined ){
-        deferred.reject(new Error('Missing required {{&paramType}} parameter: {{&name}}'));
+        promise.reject(new Error('Missing required {{&paramType}} parameter: {{&name}}'));
         }
     {{/required}}
 
@@ -105,5 +113,5 @@ queryParameters[parameterName] = parameter;
 
 {{> request}}
 
-return deferred;
+return promise;
 }
